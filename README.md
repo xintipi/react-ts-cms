@@ -3,6 +3,7 @@
 </div>
 
 ## Introduction
+
 React Admin is a free and open source middle and back-end template. Using the latest `React`, `Vite`, `TypeScript` and other mainstream technology development, the out-of-the-box middle and back-end front-end solutions can also be used for learning reference.
 
 ## Preparation
@@ -61,23 +62,24 @@ npm run lint:format
 
 - reference [react](https://github.com/reactjs/react/blob/dev/.github/COMMIT_CONVENTION.md) specification ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
 
-    - `feat` Add new features
-    - `fix` Fix the problem/BUG
-    - `style` The code style is related and does not affect the running result
-    - `perf` Optimization/performance improvement
-    - `refactor` Refactor
-    - `revert` Undo edit
-    - `test` Test related
-    - `docs` Documentation/notes
-    - `chore` Dependency update/scaffolding configuration modification etc.
-    - `workflow` Workflow improvements
-    - `ci` Continuous integration
-    - `types` Type definition file changes
-    - `wip` In development
-
+  - `feat` Add new features
+  - `fix` Fix the problem/BUG
+  - `style` The code style is related and does not affect the running result
+  - `perf` Optimization/performance improvement
+  - `refactor` Refactor
+  - `revert` Undo edit
+  - `test` Test related
+  - `docs` Documentation/notes
+  - `chore` Dependency update/scaffolding configuration modification etc.
+  - `workflow` Workflow improvements
+  - `ci` Continuous integration
+  - `types` Type definition file changes
+  - `wip` In development
 
 - Example: `git commit -m "chore: lint commit message"`
 - Exception: Can't find node in PATH, trying to find a node binary on your system
-    - Run: `echo "export PATH=\"$(dirname $(which node)):\$PATH\"" > ~/.huskyrc`
+  - Run: `echo "export PATH=\"$(dirname $(which node)):\$PATH\"" > ~/.huskyrc`
+
 ## License
+
 Copyright (c) 2022
