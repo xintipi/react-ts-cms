@@ -1,17 +1,21 @@
 {
   "name": "react-ts-cms",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A React js project",
-  "author": "Nguyễn Hữu Trung <huutrung.mmt@gmail.com>",
+  "author": {
+    "name": "Nguyen Huu Trung",
+    "email": "huutrung.mmt@gmail.com"
+  },
   "license": "MIT",
+  "homepage": "https://github.com/xintipi/react-ts-cms.git",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite",
     "build:development": "tsc && vite build --mode development",
     "build:staging": "tsc && vite build --mode staging",
     "build:production": "tsc && vite build",
-    "preview": "vite preview --port 5000",
-    "lint:fix": "eeslint --cache --max-warnings 0  \"{src}/**/*.{js,jsx,ts,tsx}\" --fix",
-    "lint:format": " prettier --write  \"src/**/*.{js,jsx,ts,tsx,css,scss,md,json}\"",
+    "preview": "vite preview --port 5555",
+    "lint:fix": "eslint --cache --max-warnings 0 ./src --ext .jsx,.js,.ts,.tsx --fix",
+    "lint:format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,scss,md,json}\"",
     "lint": "npm run lint:format && npm run lint:fix",
     "postinstall": "husky install",
     "pre-commit": "npm run lint"
@@ -20,10 +24,12 @@
     "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
+    "dayjs": "^1.11.4",
     "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.2"
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
@@ -46,5 +52,14 @@
     "sass": "^1.54.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
-  }
+  },
+  "engines": {
+    "node": "^12 || >=14"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "typescipt",
+    "ant-design"
+  ]
 }
