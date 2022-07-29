@@ -2,12 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dayjs from 'dayjs';
 // @ts-ignore
-import pkg from './package.json'
+import pkg from './package.json';
 import * as path from 'path';
 
-const {dependencies, devDependencies, name, version, author} = pkg;
+const { dependencies, devDependencies, name, version, author } = pkg;
 const __APP_INFO__ = {
-  pkg: {dependencies, devDependencies, name, version, author},
+  pkg: { dependencies, devDependencies, name, version, author },
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
 };
 
@@ -17,9 +17,10 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: '@', replacement: path.resolve(__dirname, 'src')
-      }
-    ]
+        find: '@',
+        replacement: path.resolve(__dirname, 'src'),
+      },
+    ],
   },
   server: {
     host: true,
