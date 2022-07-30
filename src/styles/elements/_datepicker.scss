@@ -1,0 +1,35 @@
+.ant-input-disabled .ant-calendar-range-picker-separator {
+  color: transparent;
+}
+
+.ant-calendar-range-picker-separator {
+  position: relative;
+  color: transparent;
+  top: 0;
+
+  &:after {
+    content: '';
+    display: block;
+    background: url('@/assets/icons/ico_swap_right.png') no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 10%;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.ant-calendar-range-middle {
+  color: transparent;
+
+  &:after {
+    content: '';
+    display: block;
+    background: url('@/assets/icons/ico_swap_right.png') no-repeat;
+    background-size: cover;
+    width: 16px;
+    position: absolute;
+    top: 20%;
+    height: 16px;
+  }
+}

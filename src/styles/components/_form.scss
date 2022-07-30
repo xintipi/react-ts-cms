@@ -1,0 +1,93 @@
+.ant-form-vertical .ant-form-item {
+  padding-bottom: 0;
+}
+
+.card-common {
+  padding: 20px;
+  height: 100%;
+
+  .form-group {
+    .form-content {
+      .form-label {
+        font-size: 12px;
+        font-weight: 700;
+        word-break: break-all;
+        &.required:after {
+          content: '*';
+          margin-left: 0.25rem;
+          color: #cd201f;
+        }
+      }
+
+      .form-input {
+        margin-top: 5px;
+
+        input {
+          width: 100%;
+        }
+
+        .form-caption {
+          color: $color-grey-75;
+          font-size: 12px;
+          line-height: 18px;
+        }
+
+        .ant-input.has-error {
+          border-color: #ff4d4f;
+          box-shadow: none;
+        }
+
+        .ant-checkbox-group {
+          label:first-child {
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .card-footer {
+    .ant-btn {
+      min-width: 105px;
+    }
+
+    .btn-cancel {
+      margin-right: 16px;
+    }
+  }
+}
+
+.search__form {
+  padding: 15px;
+  border: 1px solid #eded;
+  background-color: $color-grey-100;
+
+  &--btn {
+    display: flex;
+    justify-content: end;
+
+    .ant-btn-primary {
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+
+  .table__row {
+    margin-bottom: 10px;
+    .form-group {
+      margin-bottom: 5px;
+      &:not(.form-work-data, .form-search-calendar, .form-staff-list, .form-report) {
+        width: 50%;
+      }
+      .form-content {
+        .form-label {
+          font-size: 12px;
+          font-weight: 700;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+}

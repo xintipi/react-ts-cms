@@ -1,0 +1,75 @@
+.u-cursor-pointer {
+  cursor: pointer;
+}
+
+.u-flex {
+  display: flex;
+}
+
+.u-justify-end {
+  justify-content: flex-end;
+}
+
+.u-flex-col {
+  flex-direction: column;
+}
+
+.u-items-center {
+  align-items: center;
+}
+
+.u-justify-between {
+  justify-content: space-between;
+}
+
+.u-justify-center {
+  justify-content: center;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-grey-55 {
+  color: $color-grey-55;
+}
+
+.text-additional-blue-6 {
+  color: $color-additional-blue-6;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-hidden {
+  display: none;
+}
+
+.u-whitespace-normal {
+  white-space: normal;
+}
+
+.u-whitespace-nowrap {
+  white-space: nowrap;
+}

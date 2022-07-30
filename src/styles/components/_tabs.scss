@@ -1,0 +1,27 @@
+.ant-tabs-bar {
+  margin-bottom: 0;
+  background-color: $color-grey-100;
+  color: $color-grey-55;
+  font-weight: 700;
+  border-bottom-style: none;
+
+  &:first-child {
+    padding-left: 0;
+  }
+}
+
+.ant-tabs-nav {
+  .ant-tabs-tab:hover {
+    color: $color-primary-9;
+  }
+}
+
+.ant-tabs.ant-tabs-card {
+  .ant-tabs-nav-list {
+    .ant-tabs-tab-active {
+      > div {
+        color: $color-primary-9;
+      }
+    }
+  }
+}

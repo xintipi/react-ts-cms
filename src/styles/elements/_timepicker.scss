@@ -1,0 +1,11 @@
+.time-format-mm {
+  .ant-picker-ranges {
+    .ant-picker-ok {
+      margin-left: 0;
+    }
+  }
+}
+
+.ant-picker-time-panel-column::after {
+  height: 0;
+}

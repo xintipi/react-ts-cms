@@ -1,0 +1,13 @@
+$positions: (
+  'absolute': absolute,
+  'relative': relative,
+  'static': static,
+  'fixed': fixed,
+  'sticky': sticky,
+);
+
+@each $key, $val in $positions {
+  .u-#{$key} {
+    position: $val;
+  }
+}

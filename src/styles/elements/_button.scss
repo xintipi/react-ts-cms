@@ -1,0 +1,84 @@
+.ant-btn {
+  &:hover {
+    color: $color-primary-6;
+    border-color: $color-primary-6;
+  }
+}
+
+.ant-btn-default {
+  border-color: $color-primary-9;
+
+  &:hover {
+    background-color: $color-primary-6;
+    color: $color-grey-100;
+    border-color: $color-primary-6;
+  }
+}
+
+.ant-btn-primary {
+  background-color: $color-primary-9;
+  border-color: $color-primary-9;
+
+  &:hover,
+  &:focus {
+    color: $color-grey-100;
+    background-color: $color-primary-8;
+    border-color: $color-primary-8;
+  }
+}
+
+.ant-btn-dangerous.ant-btn-primary {
+  background-color: $color-additional-red-5;
+  border-color: $color-additional-red-5;
+
+  &:hover {
+    color: $color-grey-100;
+    background-color: $color-additional-red-4;
+  }
+}
+
+.ant-btn-link {
+  color: $color-primary-9;
+
+  &:hover {
+    border-color: transparent;
+    background-color: transparent;
+  }
+}
+
+.btn-excel {
+  @include flexbox(center, center);
+  > span {
+    color: initial;
+  }
+}
+
+.ant-btn > .anticon-search + span {
+  margin-left: 0;
+}
+
+.btn-default {
+  background-color: #ffffff;
+  color: $color-primary-6;
+  border-color: $color-primary-6;
+}
+
+.btn-primary {
+  background-color: #fff;
+  color: $color-primary-9;
+  border-color: $color-primary-9;
+  &:hover {
+    color: $color-primary-9;
+    border-color: $color-primary-9;
+  }
+}
+
+.btn-danger {
+  background-color: #fff;
+  color: $color-additional-red-5;
+  border-color: $color-additional-red-5;
+  &:hover {
+    color: $color-additional-red-5;
+    border-color: $color-additional-red-5;
+  }
+}

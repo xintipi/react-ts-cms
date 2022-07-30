@@ -1,0 +1,57 @@
+:root {
+  --slider-connect-bg: #064780;
+  --slider-handle-ring-color: #3b82f630;
+  --slider-handle-border: 0;
+  --slider-handle-bg: #fff;
+}
+
+.slider-range {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 24px;
+
+  button {
+    position: absolute;
+    bottom: -9px;
+    margin: auto;
+
+    &#btn-slider-l {
+      left: 111px;
+    }
+
+    &#btn-slider-r {
+      right: 111px;
+    }
+
+    span {
+      margin-bottom: 4px;
+    }
+  }
+
+  .slider-target {
+    max-width: 360px;
+    margin: auto;
+    flex: 1;
+
+    .slider-base {
+      background-color: #d9d9d9;
+
+      .slider-handle {
+        border: 1px solid #064780;
+        cursor: pointer;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.controller-block__toogle-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  width: 24px;
+  margin-left: 32px;
+}

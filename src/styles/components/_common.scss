@@ -1,0 +1,56 @@
+.h-35 {
+  height: 35px;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.py-6 {
+  padding-top: 4.5rem !important;
+  padding-bottom: 4.5rem !important;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: $color-grey-100;
+  background-clip: border-box;
+  border: 1px solid rgba(110, 117, 130, 0.2);
+  border-radius: 3px;
+}
+
+.custom__href {
+  color: $color-primary-9;
+  text-decoration: underline;
+}
+
+.custom__collapse {
+  background: none;
+  .ant-collapse-item {
+    border: none;
+    .ant-collapse-header {
+      display: none;
+    }
+    .ant-collapse-content {
+      .ant-collapse-content-box {
+        padding: 0 !important;
+      }
+    }
+  }
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.d-block {
+  display: block;
+}
+
+.ant-form-item-explain-error {
+  font-size: 12px;
+}

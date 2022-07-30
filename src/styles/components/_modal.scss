@@ -1,0 +1,37 @@
+.ant-modal-content {
+  border-radius: 5px;
+}
+
+.ant-modal-header {
+  border-radius: 5px 5px 0 0;
+  padding: 12px 24px;
+
+  .ant-modal-title {
+    color: $color-primary-9;
+    font-weight: 700;
+    line-height: 28px;
+    font-size: 20px;
+  }
+}
+
+.modal-add-record {
+  min-width: 738px !important;
+  .ant-modal-body {
+    padding: 0;
+    .card-common {
+      .form-input {
+        display: flex;
+        > label {
+          width: 30%;
+        }
+        > div {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .ant-form-item-control-input {
+    min-height: 0;
+  }
+}

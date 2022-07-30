@@ -1,0 +1,84 @@
+@function svg-url($svg) {
+  @if not str-index($svg, xmlns) {
+    $svg: str-replace($svg, '<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+  }
+  $encoded: '';
+  $slice: 2000;
+  $index: 0;
+  $loops: ceil(str-length($svg) / $slice);
+  @for $i from 1 through $loops {
+    $chunk: str-slice($svg, $index, $index + $slice - 1);
+    $chunk: str-replace($chunk, '"', "'");
+    $chunk: str-replace($chunk, '%', '%25');
+    $chunk: str-replace($chunk, '#', '%23');
+    $chunk: str-replace($chunk, '{', '%7B');
+    $chunk: str-replace($chunk, '}', '%7D');
+    $chunk: str-replace($chunk, '<', '%3C');
+    $chunk: str-replace($chunk, '>', '%3E');
+
+    $encoded: #{$encoded}#{$chunk};
+    $index: $index + $slice;
+  }
+  @return url('data:image/svg+xml,#{$encoded}');
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @return if(
+    $index,
+    str-slice($string, 1, $index - 1) + $replace +
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace),
+    $string
+  );
+}
+
+@mixin background-svg($svg) {
+  background-image: svg-url($svg);
+}
+
+@mixin flexbox($justify: flex-start, $align: flex-start) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin y-centered() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin x-centered() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin centered($horizontal: 50%, $vertical: 50%) {
+  position: absolute;
+  left: $horizontal;
+  top: $vertical;
+  transform: translate(-$horizontal, -$vertical);
+}
+
+@mixin background-img($position: center, $size: cover) {
+  background-position: $position;
+  background-repeat: no-repeat;
+  background-size: $size;
+}
+
+@mixin img-ratio($width, $height) {
+  padding-top: ($height / $width) * 100%;
+}
+
+@mixin list-group-horizontal($className, $margin) {
+  #{$className} + #{$className} {
+    margin-left: $margin;
+  }
+}
+
+@mixin list-group-vertical($className, $margin) {
+  #{$className} + #{$className} {
+    margin-top: $margin;
+  }
+}
