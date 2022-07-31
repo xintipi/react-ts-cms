@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { Breadcrumb as AntBreadcrumb, BreadcrumbProps } from 'antd';
+import React, { useEffect, useMemo } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const ROUTES_NAME = {
-  login: [{path: '/login'}],
+  login: [{ path: '/login' }],
   dashboard: [
     {
       path: '/',
@@ -42,7 +42,7 @@ type AntRoute = {
   children?: Omit<AntRoute, 'children'>[];
 };
 
-function Breadcrumb (props: JSX.IntrinsicAttributes & BreadcrumbProps) {
+function Breadcrumb(props: BreadcrumbProps) {
   const routesName = useMemo(() => {
     return { ...ROUTES_NAME };
   }, []);
@@ -76,14 +76,13 @@ function Breadcrumb (props: JSX.IntrinsicAttributes & BreadcrumbProps) {
     },
   ];
   const location = useLocation();
-  const [routing, setRouting] = useState<any[]>([]);
 
   useEffect(() => {
     getRoutesList();
   }, [location]);
 
   const getRoutesList = () => {
-    // console.log(routesName);
+    console.log(routesName);
     // const nameRoute = location?.pathname || '';
     // routing = routes[nameRoute] || [];
     // if (location?.search && routing.length > 0) {
@@ -102,7 +101,7 @@ function Breadcrumb (props: JSX.IntrinsicAttributes & BreadcrumbProps) {
     );
   };
 
-  return <AntBreadcrumb itemRender={itemRender} routes={routes} {...props}/>;
+  return <AntBreadcrumb itemRender={itemRender} routes={routes} {...props} />;
 }
 
 export default Breadcrumb;

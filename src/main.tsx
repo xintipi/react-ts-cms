@@ -1,9 +1,9 @@
+import 'antd/dist/antd.css';
+import '@/styles/main.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
-
-import 'antd/dist/antd.css';
-import '@/styles/main.scss';
 
 import App from './App';
 

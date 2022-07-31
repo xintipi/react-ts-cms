@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import Login from '@/pages/Login/Login';
-import Dashboard from '@/pages/Dashboard/Dashboard';
 import RootLayout from '@/layouts/Root/RootLayout';
+import Dashboard from '@/pages/Dashboard/Dashboard';
+import Login from '@/pages/Login/Login';
 
 function App() {
   useEffect(() => {

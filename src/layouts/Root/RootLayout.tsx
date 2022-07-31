@@ -1,11 +1,11 @@
-import { Layout, Breadcrumb, ConfigProvider } from 'antd';
+import { ConfigProvider, Layout } from 'antd';
 
 import HeaderLayout from '@/layouts/Header/HeaderLayout';
 import SidebarLayout from '@/layouts/Sidebar/SidebarLayout';
 
 import styles from './root-layout.module.scss';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 function RootLayout(props: { children: any }) {
   return (
