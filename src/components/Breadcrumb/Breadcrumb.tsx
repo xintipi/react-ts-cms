@@ -1,107 +1,72 @@
 import { Breadcrumb as AntBreadcrumb, BreadcrumbProps } from 'antd';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const ROUTES_NAME = {
-  login: [{ path: '/login' }],
-  dashboard: [
-    {
-      path: '/',
-      breadcrumbName: 'Dashboard',
-    },
-  ],
-  'setting-profile': [
-    {
-      path: '/',
-      breadcrumbName: 'Setting profile',
-    },
-  ],
-  'user-profile': [
-    {
-      path: '/',
-      breadcrumbName: 'User profile',
-    },
-  ],
-  'monthly-report': [
-    {
-      path: '/attendance/monthly-report',
-      breadcrumbName: 'Monthly report',
-    },
-  ],
-  'yearly-report': [
-    {
-      path: '/attendance/yearly-report',
-      breadcrumbName: 'Yearly report',
-    },
-  ],
+type Routes = {
+  path: string;
+  breadcrumbName?: string;
+  search?: string;
+  children?: Omit<Routes, 'children'>[];
 };
 
-type AntRoute = {
+type NameRoute = {
+  name: string;
   path: string;
-  breadcrumbName: string;
-  children?: Omit<AntRoute, 'children'>[];
 };
+
+const nameRoutes: NameRoute[] = [
+  { name: 'login', path: '/login' },
+  { name: 'dashboard', path: '/dashboard' },
+];
 
 function Breadcrumb(props: BreadcrumbProps) {
-  const routesName = useMemo(() => {
-    return { ...ROUTES_NAME };
-  }, []);
+  const routes = {
+    login: [{ path: '/login' }] as Routes[],
+    dashboard: [
+      {
+        path: '/dashboard',
+        breadcrumbName: 'dashboard',
+      },
+    ] as Routes[],
+  };
 
-  const routes: AntRoute[] = [
-    {
-      path: 'index',
-      breadcrumbName: 'home',
-    },
-    {
-      path: 'first',
-      breadcrumbName: 'first',
-      children: [
-        {
-          path: '/general',
-          breadcrumbName: 'General',
-        },
-        {
-          path: '/layout',
-          breadcrumbName: 'Layout',
-        },
-        {
-          path: '/navigation',
-          breadcrumbName: 'Navigation',
-        },
-      ],
-    },
-    {
-      path: 'second',
-      breadcrumbName: 'second',
-    },
-  ];
-  const location = useLocation();
+  const { pathname, search } = useLocation();
+  const [routing, setRouting] = useState<Routes[]>([]);
 
   useEffect(() => {
     getRoutesList();
   }, [location]);
 
   const getRoutesList = () => {
-    console.log(routesName);
-    // const nameRoute = location?.pathname || '';
-    // routing = routes[nameRoute] || [];
-    // if (location?.search && routing.length > 0) {
-    //   routing[routing.length - 1].query = Object.keys(location.search).length
-    //     ? { ...location.search }
-    //     : '';
-    // }
+    const route = nameRoutes.find((r: NameRoute) => r.path === pathname);
+    const routePick = route?.name ? routes[route?.name as keyof typeof routes] : '';
+
+    setRouting(() => {
+      return typeof routePick !== 'string' ? routePick?.map((item) => item) : [];
+    });
+
+    if (search && routing.length) {
+      setRouting((prevState: Routes[]): Routes[] => {
+        const nextState = [...prevState];
+        nextState[prevState.length - 1].search = Object.keys(search).length ? search : '';
+        return nextState;
+      });
+    }
   };
 
-  const itemRender = (route: any, params: any, routes: string | any[], paths: any[]) => {
+  const itemRender = (route: any, params: any, routes: string | any[]) => {
     const last = routes.indexOf(route) === routes.length - 1;
     return last ? (
       <span>{route.breadcrumbName}</span>
     ) : (
-      <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+      <Link to={{ pathname: route.path, search: route.search }}>
+        {route.breadcrumbName}
+      </Link>
     );
   };
 
-  return <AntBreadcrumb itemRender={itemRender} routes={routes} {...props} />;
+  // @ts-ignore
+  return <AntBreadcrumb itemRender={itemRender} routes={routing} {...props} />;
 }
 
 export default Breadcrumb;
