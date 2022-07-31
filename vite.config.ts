@@ -24,15 +24,45 @@ export default defineConfig({
   },
   server: {
     host: true,
-    port: 8000,
+    port: 8080,
+    open: true,
+  },
+  esbuild: {
+    pure: ['console.log', 'debugger'],
   },
   build: {
     target: 'es2015',
     cssTarget: 'chrome80',
+    outDir: 'dist',
     chunkSizeWarningLimit: 2000,
   },
   define: {
     __APP_INFO__: JSON.stringify(__APP_INFO__),
   },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        additionalData: '@root-entry-name: default;',
+      },
+    },
+    postcss: {
+      plugins: [
+        {
+          postcssPlugin: 'internal:charset-removal',
+          AtRule: {
+            charset: (atRule) => {
+              if (atRule.name === 'charset') {
+                atRule.remove();
+              }
+            },
+          },
+        },
+      ],
+    },
+  },
   plugins: [react()],
+  optimizeDeps: {
+    include: ['antd/es/locale/ja_JP', 'antd/es/locale/en_US'],
+  },
 });
