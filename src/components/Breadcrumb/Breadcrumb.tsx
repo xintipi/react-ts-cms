@@ -1,37 +1,22 @@
 import { Breadcrumb as AntBreadcrumb, BreadcrumbProps } from 'antd';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-type Routes = {
-  path: string;
-  breadcrumbName?: string;
-  search?: string;
-  children?: Omit<Routes, 'children'>[];
-};
-
-type NameRoute = {
-  name: string;
-  path: string;
-};
+import { KeyRoutes, NameRoute, RoutesInfo } from '@/types/breadcrumb';
 
 const nameRoutes: NameRoute[] = [
   { name: 'login', path: '/login' },
   { name: 'dashboard', path: '/dashboard' },
 ];
 
-function Breadcrumb(props: BreadcrumbProps) {
-  const routes = {
-    login: [{ path: '/login' }] as Routes[],
-    dashboard: [
-      {
-        path: '/dashboard',
-        breadcrumbName: 'dashboard',
-      },
-    ] as Routes[],
-  };
+const routes: Record<KeyRoutes, RoutesInfo[]> = {
+  login: [{ path: '/login' }],
+  dashboard: [{ path: '/dashboard', breadcrumbName: 'dashboard' }],
+};
 
+function Breadcrumb(props: BreadcrumbProps) {
   const { pathname, search } = useLocation();
-  const [routing, setRouting] = useState<Routes[]>([]);
+  const [routing, setRouting] = useState<RoutesInfo[]>([]);
 
   useEffect(() => {
     getRoutesList();
@@ -46,7 +31,7 @@ function Breadcrumb(props: BreadcrumbProps) {
     });
 
     if (search && routing.length) {
-      setRouting((prevState: Routes[]): Routes[] => {
+      setRouting((prevState: RoutesInfo[]): RoutesInfo[] => {
         const nextState = [...prevState];
         nextState[prevState.length - 1].search = Object.keys(search).length ? search : '';
         return nextState;

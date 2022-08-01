@@ -9,7 +9,7 @@ import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 
-import styles from './sidebar-layout.module.scss';
+import styles from './SidebarLayout.module.scss';
 
 const { Sider } = Layout;
 

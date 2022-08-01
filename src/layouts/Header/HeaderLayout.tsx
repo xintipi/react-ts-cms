@@ -3,7 +3,7 @@ import { Button } from 'antd';
 
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 
-import styles from './header-layout.module.scss';
+import styles from './HeaderLayout.module.scss';
 
 function HeaderLayout() {
   return (

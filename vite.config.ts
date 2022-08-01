@@ -27,6 +27,10 @@ export default defineConfig({
     port: 8080,
     open: true,
   },
+  preview: {
+    port: 5555,
+    open: true,
+  },
   esbuild: {
     pure: ['console.log', 'debugger'],
   },
