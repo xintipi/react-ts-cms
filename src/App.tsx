@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
-import { Auth } from '@/api/services/auth.service';
 import RootLayout from '@/layouts/Root/RootLayout';
 import Profile, { ProfileTransfer } from '@/models/Profile';
 import Dashboard from '@/pages/Dashboard/Dashboard';
 import Login from '@/pages/Login/Login';
+import { Auth } from '@/services/auth.service';
 
 const titles = {
   '/login': 'Login',
@@ -24,13 +24,11 @@ function App() {
   const getProfileApi = async () => {
     try {
       const data = await Auth.profile();
-      if (data.length) {
-        const dataTransfer = data.map(
-          ({ body, id, title, userId }: ProfileTransfer) =>
-            new Profile({ body, id, title, userId }),
-        );
-        console.log(dataTransfer);
-      }
+      const dataTransfer = (data as unknown as ProfileTransfer[]).map(
+        ({ body, id, title, userId }: ProfileTransfer) =>
+          new Profile({ body, id, title, userId }),
+      );
+      console.log(dataTransfer);
     } catch (err) {
       return err;
     }
