@@ -44,9 +44,7 @@ function Breadcrumb(props: BreadcrumbProps) {
     return last ? (
       <span>{r.breadcrumbName}</span>
     ) : (
-      <Link to={{ pathname: r.path, search: r.search }}>
-        {r.breadcrumbName}
-      </Link>
+      <Link to={{ pathname: r.path, search: r.search }}>{r.breadcrumbName}</Link>
     );
   };
 

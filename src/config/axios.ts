@@ -34,7 +34,6 @@ instance.interceptors.response.use(
     const key = 'responseError';
 
     if (status) {
-
       notification.error({
         key,
         message: 'message_error',

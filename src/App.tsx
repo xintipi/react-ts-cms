@@ -4,7 +4,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import RootLayout from '@/layouts/Root/RootLayout';
 import Profile, { ProfileTransfer } from '@/models/Profile';
 import Dashboard from '@/pages/Dashboard/Dashboard';
-import Login from "@/pages/Login/Login";
+import Login from '@/pages/Login/Login';
 import { Auth } from '@/services/auth.service';
 
 const titles = {
