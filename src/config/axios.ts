@@ -7,8 +7,6 @@ import axios, {
 } from 'axios';
 import Cookies from 'js-cookie';
 
-// import { CookieEnum } from '@/enums/cookie.enum';
-
 const instance: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_AXIOS_BASE_URL,
   timeout: 6000,
@@ -33,11 +31,9 @@ instance.interceptors.response.use(
   async (error): Promise<AxiosError> => {
     // Do something with response error
     const { status, data } = error.response;
-    // const authStore = useAuthStore();
     const key = 'responseError';
 
     if (status) {
-      // if (status === 401) authStore.setLogout();
 
       notification.error({
         key,

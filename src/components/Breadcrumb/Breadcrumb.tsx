@@ -39,13 +39,13 @@ function Breadcrumb(props: BreadcrumbProps) {
     }
   };
 
-  const itemRender = (route: any, params: any, routes: string | any[]) => {
-    const last = routes.indexOf(route) === routes.length - 1;
+  const itemRender = (r: any, rs: string | any[]) => {
+    const last = rs.indexOf(r) === rs.length - 1;
     return last ? (
-      <span>{route.breadcrumbName}</span>
+      <span>{r.breadcrumbName}</span>
     ) : (
-      <Link to={{ pathname: route.path, search: route.search }}>
-        {route.breadcrumbName}
+      <Link to={{ pathname: r.path, search: r.search }}>
+        {r.breadcrumbName}
       </Link>
     );
   };
